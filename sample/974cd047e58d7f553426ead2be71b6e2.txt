@@ -1,0 +1,1 @@
+{"name":"Distributed actuating secured line","hash":"974cd047e58d7f553426ead2be71b6e2","size":38,"createdAt":"2024-12-03T18:51:09.411Z","content":"Function-based explicit knowledge base"}

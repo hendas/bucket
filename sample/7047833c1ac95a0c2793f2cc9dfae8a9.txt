@@ -1,0 +1,1 @@
+{"name":"plik1","hash":"7047833c1ac95a0c2793f2cc9dfae8a9","size":11,"createdAt":"2024-12-03T18:34:00.455Z","content":"treść pliku","pass":"test"}

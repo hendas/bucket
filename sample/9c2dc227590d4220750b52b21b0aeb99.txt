@@ -1,0 +1,1 @@
+{"name":"HDD","hash":"9c2dc227590d4220750b52b21b0aeb99","size":29,"createdAt":"2024-12-03T18:51:12.770Z","content":"Up-sized homogeneous approach"}

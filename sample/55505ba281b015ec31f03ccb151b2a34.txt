@@ -1,0 +1,1 @@
+{"name":"PNG","hash":"55505ba281b015ec31f03ccb151b2a34","size":32,"createdAt":"2024-12-03T18:51:10.585Z","content":"Open-architected mobile software"}

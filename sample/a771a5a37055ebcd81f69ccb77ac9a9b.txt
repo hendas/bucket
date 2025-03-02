@@ -1,0 +1,1 @@
+{"name":"ADP","hash":"a771a5a37055ebcd81f69ccb77ac9a9b","size":29,"createdAt":"2024-12-03T18:51:13.957Z","content":"Stand-alone intangible portal"}
