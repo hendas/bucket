@@ -9,7 +9,7 @@ import { NotFoundException } from "../exceptions/not-found";
 import { ForbiddenException } from "../exceptions/forbidden";
 
 class FilesService {
-  static metadata: {
+  private static metadata: {
     [hash: string]: FileMetaData | null;
   } = {};
 
@@ -193,25 +193,28 @@ class FilesService {
     if (config.files.RUN_MIGRATION) {
       await this.migrateMetadata();
     }
+    try {
+      const files = await readdir(config.files.META_PATH, {
+        withFileTypes: true,
+      });
+      for (const file of files) {
+        const hash = this.getHashFromFileName(file.name);
+        try {
+          if (!file.isFile()) {
+            continue;
+          }
 
-    const files = await readdir(config.files.META_PATH, {
-      withFileTypes: true,
-    });
-    for (const file of files) {
-      const hash = this.getHashFromFileName(file.name);
-      try {
-        if (!file.isFile()) {
-          continue;
+          const meta = await this.getMetaByHash(hash);
+
+          FilesService.metadata[hash] = meta;
+        } catch (e) {
+          FilesService.metadata[hash] = null;
         }
-
-        const meta = await this.getMetaByHash(hash);
-
-        FilesService.metadata[hash] = meta;
-      } catch (e) {
-        FilesService.metadata[hash] = null;
       }
+      console.log(`Hydrated metadata for ${files.length} files`);
+    } catch (e: any) {
+      console.log(`Error hydrating metadata: ${e.message}`);
     }
-    console.log(`Hydrated metadata for ${files.length} files`);
   }
 }
 
